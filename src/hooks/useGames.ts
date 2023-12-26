@@ -2,13 +2,7 @@ import { Genre } from "./useGenres.ts";
 import { GameQuery } from "../App.tsx";
 import { useQuery } from "@tanstack/react-query";
 import apiClient, { FetchResponse } from "../services/api-client.ts";
-
-//TODO this is duplicated in the usePlatform.
-export interface Platform {
-	id: number;
-	name: string;
-	slug: string;
-}
+import { Platform } from "./usePlatforms.ts";
 
 export interface Game {
 	id: number;
