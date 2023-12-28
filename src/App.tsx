@@ -7,11 +7,10 @@ import { Genre } from "./hooks/useGenres.ts";
 import PlatFormSelector from "./components/PlatformSelector.tsx";
 import SortSelector from "./components/SortSelector.tsx";
 import GameHeading from "./components/GameHeading.tsx";
-import { Platform } from "./hooks/usePlatforms.ts";
 
 export interface GameQuery {
-	genre: Genre | null;
-	platform: Platform | null;
+	genreId?: number;
+	platformId?: number;
 	sortOrder: string;
 	searchText: string;
 }
@@ -20,7 +19,7 @@ function App() {
 	const [gameQuery, setGameQuery] = useState<GameQuery>({} as GameQuery);
 
 	const handleSelectedGenre = (genre: Genre) => {
-		setGameQuery({ ...gameQuery, genre });
+		setGameQuery({ ...gameQuery, genreId: genre.id });
 	};
 
 	return (
@@ -46,7 +45,7 @@ function App() {
 				<GridItem area="aside" paddingX={5}>
 					<GenreList
 						onSelectGenre={handleSelectedGenre}
-						selectedGenre={gameQuery.genre}
+						selectedGenreId={gameQuery.genreId}
 					/>
 				</GridItem>
 			</Show>
@@ -57,9 +56,12 @@ function App() {
 					<Flex marginBottom={5}>
 						<Box marginRight={5}>
 							<PlatFormSelector
-								selectedPlatform={gameQuery.platform}
+								selectedPlatformId={gameQuery.platformId}
 								onSelectPlatform={(platform) =>
-									setGameQuery({ ...gameQuery, platform })
+									setGameQuery({
+										...gameQuery,
+										platformId: platform.id,
+									})
 								}
 							/>
 						</Box>
