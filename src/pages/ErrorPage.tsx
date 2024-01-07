@@ -7,12 +7,14 @@ const ErrorPage = () => {
 	return (
 		<>
 			<NavBar />
-			<Box p={5}><Heading size={"xl"}>Oops</Heading>
+			<Box p={5}>
+				<Heading size={"xl"}>Oops</Heading>
 				<Text h={"md"}>
 					{isRouteErrorResponse(error)
 						? "This page does not exist"
 						: "An unexpected error has happen"}
-				</Text></Box>
+				</Text>
+			</Box>
 		</>
 	);
 };
