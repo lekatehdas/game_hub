@@ -12,8 +12,7 @@ import { MdPhoneIphone } from "react-icons/md";
 import { SiNintendo } from "react-icons/si";
 import { BsGlobe } from "react-icons/bs";
 import { IconType } from "react-icons";
-
-import { Platform } from "../entities/Platform.ts";
+import Platform from "../entities/Platform.ts";
 
 interface Props {
 	platforms: Platform[];
